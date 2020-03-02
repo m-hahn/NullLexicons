@@ -1,0 +1,2 @@
+~/python27 main.py --lex celexes/pcfg__lemma_english_1_0_0_40.txt --model=pcfg --grammar grammars/grammar_english.wlt
+
