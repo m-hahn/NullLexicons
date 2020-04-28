@@ -28,6 +28,7 @@ def generate_correct_number(corpus, homo, lm):
     newwords2 = []
     exist = nltk.defaultdict(int)
     while True:
+        print(lengths_needed)
         words = lm.generate()
         for w in words:
             if lengths_needed[get_cv(w)] > 0:

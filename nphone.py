@@ -71,6 +71,7 @@ class NgramModel(LM):
     def generate(self, ngen = 1):
         """Generate as many words as specified by ngen"""
         LM.generate(self, ngen)
+       # print(ngen)
         words = [self.generate_one(self.n) for xx in range(ngen)]
         return words
         
@@ -85,6 +86,7 @@ class NgramModel(LM):
                 break
             if word[-1] == "[":
                 word = ["["]*(self.n - 1)
+#        print("".join(word[(self.n - 1):-1]))
         return "".join(word[(self.n - 1):-1])
 
 

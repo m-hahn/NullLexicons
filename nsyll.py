@@ -40,10 +40,11 @@ class NsyllModel(LM):
         unigrams = []
         for k in range(1,self.n+1):
             for item in corpus:
-                 item, ortho, f = item.split(" ")
+                 print(item)
+                 #item, ortho, f = item, None, 1
                  item_ngrams = nltk.ngrams(["["]*(k-1) + [i for i in item.split("-")] + ["]"], k)
                  for ng in item_ngrams:
-                    self.cfd[k]["-".join(ng[:-1])][ng[-1]] += 1 * float(f)#.inc(ng[-1])
+                    self.cfd[k]["-".join(ng[:-1])][ng[-1]] += 1 #* float(f)#.inc(ng[-1])
                     unigrams += [ng[-1]]
         U = len(set(unigrams))
         units = set(unigrams)
@@ -64,7 +65,9 @@ class NsyllModel(LM):
 
         #for generation with smoothing 
         if self.smoothing and self.generation:
+            print("create grams 68:35", self.n, len(units))
             grams = [i for i in itertools.product(units, repeat = self.n)]
+            print("created grams")
             for i, g in enumerate(grams):
                 self.cpd[self.n]['-'.join(g[:-1])][g[-1]] = self.backoff(self.n, '-'.join(g[:-1]), g[-1])
             for k in range(1,self.n):

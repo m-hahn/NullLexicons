@@ -1,0 +1,8 @@
+~/python27 main.py --lex celexes/pcfg__lemma_english_1_0_0_40.txt --model=pcfg --grammar grammars/grammar_english.wlt
+~/python27 main.py --lex celexes/pcfg__lemma_dutch_1_0_0_40.txt --model=pcfg --grammar grammars/grammar_dutch.wlt
+~/python27 main.py --lex celexes/pcfg__lemma_german_1_0_0_40.txt --model=pcfg --grammar grammars/grammar_german.wlt
+
+~/python27 main.py --lex celexes/syll__lemma_english_1_0_0_40.txt --model=nsyll --n=2
+
+~/python27 main.py --lex celexes/lemma_english_1_0_0_40.txt --model=nphone
+
